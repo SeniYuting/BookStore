@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Struts2 DTD -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.devMode" value="true" />
+	<package name="process" extends="struts-default">
+		<!-- Book -->
+		<action name="allBooksPro" class="action.AllBooksAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+		</action>
+		<action name="addBookPro" class="action.AddBookAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+		</action>
+		<action name="updateBookPro" class="action.UpdateBookAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+		</action>
+		<action name="deleteBookPro" class="action.DeleteBookAction">
+			<result name="success">/bookstore/jsp/book.jsp</result>
+		</action>
+
+		<!-- Order -->
+		<action name="allOrdersPro" class="action.AllOrdersAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+		</action>
+		<action name="addOrderPro" class="action.AddOrderAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+		</action>
+		<action name="updateOrderPro" class="action.UpdateOrderAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+		</action>
+		<action name="deleteOrderPro" class="action.DeleteOrderAction">
+			<result name="success">/bookstore/jsp/order.jsp</result>
+		</action>
+
+		<!-- Orderitem -->
+		<action name="allOrderitemsPro" class="action.AllOrderitemsAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+		</action>
+		<action name="addOrderitemPro" class="action.AddOrderitemAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+		</action>
+		<action name="updateOrderitemPro" class="action.UpdateOrderitemAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+		</action>
+		<action name="deleteOrderitemPro" class="action.DeleteOrderitemAction">
+			<result name="success">/bookstore/jsp/orderitem.jsp</result>
+		</action>
+
+		<!-- User -->
+		<action name="allUsersPro" class="action.AllUsersAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+		</action>
+		<action name="addUserPro" class="action.AddUserAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+		</action>
+		<action name="updateUserPro" class="action.UpdateUserAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+		</action>
+		<action name="deleteUserPro" class="action.DeleteUserAction">
+			<result name="success">/bookstore/jsp/user.jsp</result>
+		</action>
+
+		<action name="*">
+			<result>/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
