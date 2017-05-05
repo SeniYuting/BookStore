@@ -19,10 +19,6 @@ public class AllOrdersAction extends BaseAction {
 	public String execute() throws Exception {
 
 		List<Order> orders = appService.getAllOrders();
-
-		if (orders.size() == 0)
-			request().setAttribute("noOrder", "true");
-
 		request().setAttribute("orders", orders);
 
 		return SUCCESS;

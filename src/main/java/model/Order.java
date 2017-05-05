@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Order {
 
@@ -38,5 +40,15 @@ public class Order {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	private Set<Orderitem> orderitems = new HashSet<Orderitem>();
+
+	public Set<Orderitem> getOrderitems() {
+		return orderitems;
+	}
+
+	public void setOrderitems(Set<Orderitem> orderitems) {
+		this.orderitems = orderitems;
 	}
 }

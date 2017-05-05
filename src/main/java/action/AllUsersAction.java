@@ -19,10 +19,6 @@ public class AllUsersAction extends BaseAction {
 	public String execute() throws Exception {
 
 		List<User> users = appService.getAllUsers();
-
-		if (users.size() == 0)
-			request().setAttribute("noUser", "true");
-
 		request().setAttribute("users", users);
 
 		return SUCCESS;

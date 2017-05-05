@@ -45,7 +45,6 @@ public class AddOrderitemAction extends BaseAction {
 	public String execute() throws Exception {
 
 		Orderitem orderitem = new Orderitem(orderid, bookid, amount);
-		// consider foreign key
 		appService.addOrderitem(orderitem);
 
 		return SUCCESS;

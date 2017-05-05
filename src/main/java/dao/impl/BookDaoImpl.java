@@ -26,7 +26,7 @@ public class BookDaoImpl extends HibernateDaoSupport implements BookDao {
 		@SuppressWarnings("unchecked")
 		List<Book> books = (List<Book>) getHibernateTemplate().find(
 				"from Book as b where b.id=?", id);
-		Book book = books.get(0);
+		Book book = books.size() > 0 ? books.get(0) : null;
 		return book;
 	}
 

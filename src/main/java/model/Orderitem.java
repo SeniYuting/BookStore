@@ -47,4 +47,15 @@ public class Orderitem {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+
+	private Order order;
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
 }

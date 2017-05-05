@@ -27,7 +27,7 @@ public class OrderitemDaoImpl extends HibernateDaoSupport implements
 		@SuppressWarnings("unchecked")
 		List<Orderitem> orderitems = (List<Orderitem>) getHibernateTemplate()
 				.find("from Orderitem as oi where oi.id=?", id);
-		Orderitem orderitem = orderitems.get(0);
+		Orderitem orderitem = orderitems.size() > 0 ? orderitems.get(0) : null;
 		return orderitem;
 	}
 

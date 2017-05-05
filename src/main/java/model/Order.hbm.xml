@@ -14,5 +14,9 @@
 		<property name="date" type="java.sql.Date">
 			<column name="date" />
 		</property>
+		<set name="orderitems" lazy="false" inverse="true">
+			<key column="id" />
+			<one-to-many class="model.Orderitem" />
+		</set>
 	</class>
 </hibernate-mapping>

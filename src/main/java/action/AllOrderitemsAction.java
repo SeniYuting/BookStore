@@ -19,10 +19,6 @@ public class AllOrderitemsAction extends BaseAction {
 	public String execute() throws Exception {
 
 		List<Orderitem> orderitems = appService.getAllOrderitems();
-
-		if (orderitems.size() == 0)
-			request().setAttribute("noOrderitem", "true");
-
 		request().setAttribute("orderitems", orderitems);
 
 		return SUCCESS;

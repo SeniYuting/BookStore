@@ -19,10 +19,6 @@ public class AllBooksAction extends BaseAction {
 	public String execute() throws Exception {
 
 		List<Book> books = appService.getAllBooks();
-
-		if (books.size() == 0)
-			request().setAttribute("noBook", "true");
-
 		request().setAttribute("books", books);
 
 		return SUCCESS;

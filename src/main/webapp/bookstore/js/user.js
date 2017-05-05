@@ -23,7 +23,8 @@ $(function() {
 				success : function(data) {
 					console.log(id);
 					bootbox.alert({
-						message : '修改成功，注：若关联外键不存在，则不修改',
+						message : 'Modify Successfully! '
+							+ 'PS: No change if foreign key does not exist!',
 						callback : function() {
 							location.reload();
 						}
@@ -42,7 +43,8 @@ $(function() {
 				},
 				success : function(data) {
 					bootbox.alert({
-						message : '添加成功，注：若关联外键不存在，则不添加',
+						message : 'Add Successfully! '
+							+ 'PS: No change if foreign key does not exist!',
 						callback : function() {
 							location.reload();
 						}
@@ -58,13 +60,13 @@ $(function() {
 		bootbox.confirm({
 			buttons : {
 				confirm : {
-					label : '删除'
+					label : 'Delete'
 				},
 				cancel : {
-					label : '取消'
+					label : 'Cancel'
 				}
 			},
-			message : '确认删除？',
+			message : 'Sure to delete?',
 			callback : function(result) {
 				if (result) {
 
@@ -80,7 +82,8 @@ $(function() {
 						success : function(data) {
 							console.log(id);
 							bootbox.alert({
-								message : '删除成功，注：若关联外键存在，则不删除',
+								message : 'Delete Successfully! '
+									+ 'PS: No change if foreign key does not exist!',
 								callback : function() {
 									location.reload();
 								}
