@@ -41,7 +41,7 @@
 		<javax.servlet-api.version>2.5</javax.servlet-api.version>
 
 		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
-		<jdk.version>1.8.0_45</jdk.version>
+		<jdk.version>1.8</jdk.version>
 
 		<tomcat.version>2.2</tomcat.version>
 		<port>8080</port>
