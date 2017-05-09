@@ -64,7 +64,7 @@
 				<div class="col-lg-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							add user
+							add order
 							<button class="btn btn-default" type="button" id="add">
 								<i class="fa fa-plus"></i>
 							</button>
