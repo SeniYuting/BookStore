@@ -1,7 +1,7 @@
 $(function() {
 
 	$("#save").click(function(e) {
-		var userid = $("input[name='userid']").val();
+		var userid = $("#userid").val();
 		var date = $("input[name='date']").val();
 		console.log(userid, date);
 
@@ -96,7 +96,7 @@ $(function() {
 	$("#add").click(function(e) {
 		$('#modalTitle').html("Add");
 
-		$("input[name='userid']").val("");
+		$("#userid").val("");
 		$("input[name='date']").val("");
 
 		$("#save").attr("data-id", "");
@@ -109,7 +109,7 @@ $(function() {
 		var id = dataset.id;
 		console.log(id);
 
-		$("input[name='userid']").val(dataset.userid);
+		$("#userid").val(dataset.userid);
 		$("input[name='date']").val(dataset.date);
 
 		$("#save").attr("data-id", dataset.id);

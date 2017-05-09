@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.Order"%>
 <%@ page import="model.Orderitem"%>
+<%@ page import="model.User"%>
 <%@ page import="java.util.Set"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -26,9 +27,13 @@
 <body>
 	<%
 		ArrayList<Order> orderList = new ArrayList<Order>();
-			if (request.getAttribute("orders") != null) {
-		orderList = (ArrayList<Order>) request.getAttribute("orders");
-			}
+		if (request.getAttribute("orders") != null) {
+		    orderList = (ArrayList<Order>) request.getAttribute("orders");
+		}
+		ArrayList<User> userList = new ArrayList<User>();
+		if(request.getAttribute("users")!=null) {
+			userList = (ArrayList<User>) request.getAttribute("users");	
+		}
 	%>
 	<div id="wrapper">
 		<!-- Navigation -->
@@ -79,10 +84,10 @@
 									id="dataTables">
 									<thead>
 										<tr>
-										    <th>ID</th>
+											<th>ID</th>
 											<th>Userid</th>
 											<th>Date</th>
-											<th>Set</th>
+											<th>Orderitem ID List</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -92,15 +97,14 @@
 												Order order = orderList.get(i);
 												Set<Orderitem> orderitems = order.getOrderitems();
 												ArrayList<String> orderitemStr = new ArrayList<String>();
-										
-												
+																												
 												Iterator iterator = orderitems.iterator();     
-											    while(iterator.hasNext()){
-											    	orderitemStr.add(((Orderitem)iterator.next()).getId()+"");
-											    }  
+												while(iterator.hasNext()){
+													orderitemStr.add(((Orderitem)iterator.next()).getId()+"");
+												}
 										%>
 										<tr>
-										    <td><%=order.getId() %></td>
+											<td><%=order.getId()%></td>
 											<td><%=order.getUserid()%></td>
 											<td><%=order.getDate()%></td>
 											<td><%=orderitemStr%></td>
@@ -151,8 +155,17 @@
 						<div class="col-lg-12">
 							<form role="form">
 								<div class="form-group">
-									<label>Userid</label> <input class="form-control" type="number"
-										name="userid">
+									<label>Userid</label>
+									<select class="form-control" id="userid">
+										<%
+											for (int i = 0; i < userList.size(); i++) {
+												User user = userList.get(i);
+										%>
+										<option value="<%=user.getId()%>"><%=user.getId()%></option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Date</label> <input class="form-control" type="date"

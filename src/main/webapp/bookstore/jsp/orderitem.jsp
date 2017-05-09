@@ -1,4 +1,6 @@
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="model.Book"%>
+<%@ page import="model.Order"%>
 <%@ page import="model.Orderitem"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -23,9 +25,17 @@
 <body>
 	<%
 		ArrayList<Orderitem> orderitemList = new ArrayList<Orderitem>();
-			if (request.getAttribute("orderitems") != null) {
-		orderitemList = (ArrayList<Orderitem>) request.getAttribute("orderitems");
-			}
+	    if (request.getAttribute("orderitems") != null) {
+		    orderitemList = (ArrayList<Orderitem>) request.getAttribute("orderitems");
+		}
+	    ArrayList<Order> orderList = new ArrayList<Order>();
+	    if(request.getAttribute("orders") != null) {
+	    	orderList = (ArrayList<Order>) request.getAttribute("orders");
+	    }
+	    ArrayList<Book> bookList = new ArrayList<Book>();
+	    if(request.getAttribute("books") != null) {
+	    	bookList = (ArrayList<Book>) request.getAttribute("books");
+	    }
 	%>
 	<div id="wrapper">
 		<!-- Navigation -->
@@ -141,12 +151,30 @@
 						<div class="col-lg-12">
 							<form role="form">
 								<div class="form-group">
-									<label>Orderid</label> <input class="form-control"
-										type="number" name="orderid">
+								    <label>Orderid</label>
+								    <select class="form-control" id="orderid">
+										<%
+											for (int i = 0; i < orderList.size(); i++) {
+												Order order = orderList.get(i);
+										%>
+										<option value="<%=order.getId()%>"><%=order.getId()%></option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
-									<label>Bookid</label> <input class="form-control" type="number"
-										name="bookid">
+								    <label>Bookid</label>
+								    <select class="form-control" id="bookid">
+										<%
+											for (int i = 0; i < bookList.size(); i++) {
+												Book book = bookList.get(i);
+										%>
+										<option value="<%=book.getId()%>"><%=book.getId()%></option>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Amount</label> <input class="form-control" type="number"

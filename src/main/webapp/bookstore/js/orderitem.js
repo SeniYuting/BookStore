@@ -1,8 +1,8 @@
 $(function() {
 
 	$("#save").click(function(e) {
-		var orderid = $("input[name='orderid']").val();
-		var bookid = $("input[name='bookid']").val();
+		var orderid = $("#orderid").val();
+		var bookid = $("#bookid").val();
 		var amount = $("input[name='amount']").val();
 		console.log(orderid, bookid, amount);
 
@@ -99,8 +99,8 @@ $(function() {
 	$("#add").click(function(e) {
 		$('#modalTitle').html("Add");
 
-		$("input[name='orderid']").val("");
-		$("input[name='bookid']").val("");
+		$("#orderid").val("");
+		$("#bookid").val("");
 		$("input[name='amount']").val("");
 
 		$("#save").attr("data-id", "");
@@ -113,8 +113,8 @@ $(function() {
 		var id = dataset.id;
 		console.log(id);
 
-		$("input[name='orderid']").val(dataset.orderid);
-		$("input[name='bookid']").val(dataset.bookid);
+		$("#orderid").val(dataset.orderid);
+		$("#bookid").val(dataset.bookid);
 		$("input[name='amount']").val(dataset.amount);
 
 		$("#save").attr("data-id", dataset.id);

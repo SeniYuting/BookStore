@@ -3,6 +3,7 @@ package action;
 import java.util.List;
 
 import model.Order;
+import model.User;
 import service.AppService;
 
 public class AllOrdersAction extends BaseAction {
@@ -20,6 +21,9 @@ public class AllOrdersAction extends BaseAction {
 
 		List<Order> orders = appService.getAllOrders();
 		request().setAttribute("orders", orders);
+
+		List<User> users = appService.getAllUsers();
+		request().setAttribute("users", users);
 
 		return SUCCESS;
 	}
