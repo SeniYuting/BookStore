@@ -76,6 +76,7 @@
 									id="dataTables">
 									<thead>
 										<tr>
+										    <th>ID</th>
 											<th>Username</th>
 											<th>Password</th>
 											<th>Role</th>
@@ -88,6 +89,7 @@
 																				User user = userList.get(i);
 										%>
 										<tr>
+										    <td><%=user.getId()%></td>
 											<td><%=user.getUsername()%></td>
 											<td><%=user.getPassword()%></td>
 											<td><%=user.getRole()%></td>

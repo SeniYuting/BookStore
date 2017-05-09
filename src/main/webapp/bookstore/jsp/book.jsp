@@ -76,6 +76,7 @@
 									id="dataTables">
 									<thead>
 										<tr>
+										    <th>ID</th>
 											<th>Title</th>
 											<th>Author</th>
 											<th>Price</th>
@@ -90,6 +91,7 @@
 																				Book book = bookList.get(i);
 										%>
 										<tr>
+										    <td><%=book.getId()%></td>
 											<td><%=book.getTitle()%></td>
 											<td><%=book.getAuthor()%></td>
 											<td><%=book.getPrice()%></td>
@@ -152,7 +154,7 @@
 								</div>
 								<div class="form-group">
 									<label>Price</label> <input class="form-control" type="number"
-										step="0.1" name="price">
+										step="0.01" name="price">
 								</div>
 								<div class="form-group">
 									<label>Publisher</label> <input class="form-control"

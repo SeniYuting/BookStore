@@ -1,5 +1,8 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="model.Order"%>
+<%@ page import="model.Orderitem"%>
+<%@ page import="java.util.Set"%>
+<%@ page import="java.util.Iterator"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -76,19 +79,31 @@
 									id="dataTables">
 									<thead>
 										<tr>
+										    <th>ID</th>
 											<th>Userid</th>
 											<th>Date</th>
+											<th>Set</th>
 											<th></th>
 										</tr>
 									</thead>
 									<tbody>
 										<%
 											for (int i = 0; i < orderList.size(); i++) {
-																				Order order = orderList.get(i);
+												Order order = orderList.get(i);
+												Set<Orderitem> orderitems = order.getOrderitems();
+												ArrayList<String> orderitemStr = new ArrayList<String>();
+										
+												
+												Iterator iterator = orderitems.iterator();     
+											    while(iterator.hasNext()){
+											    	orderitemStr.add(((Orderitem)iterator.next()).getId()+"");
+											    }  
 										%>
 										<tr>
+										    <td><%=order.getId() %></td>
 											<td><%=order.getUserid()%></td>
 											<td><%=order.getDate()%></td>
+											<td><%=orderitemStr%></td>
 											<td>
 												<button class="btn btn-default delete" type="button"
 													data-id="<%=order.getId()%>">

@@ -15,7 +15,7 @@
 			<column name="date" />
 		</property>
 		<set name="orderitems" lazy="false" inverse="true">
-			<key column="id" />
+			<key column="orderid" />
 			<one-to-many class="model.Orderitem" />
 		</set>
 	</class>

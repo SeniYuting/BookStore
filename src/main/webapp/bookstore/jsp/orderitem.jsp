@@ -76,6 +76,7 @@
 									id="dataTables">
 									<thead>
 										<tr>
+										    <th>ID</th>
 											<th>Orderid</th>
 											<th>Bookid</th>
 											<th>Amount</th>
@@ -88,6 +89,7 @@
 																				Orderitem orderitem = orderitemList.get(i);
 										%>
 										<tr>
+										    <td><%=orderitem.getId()%></td>
 											<td><%=orderitem.getOrderid()%></td>
 											<td><%=orderitem.getBookid()%></td>
 											<td><%=orderitem.getAmount()%></td>
