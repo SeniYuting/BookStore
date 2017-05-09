@@ -1,4 +1,5 @@
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="model.Book"%>
 <%@ page import="model.Order"%>
 <%@ page import="model.Orderitem"%>
 <%@ page import="model.User"%>
@@ -31,8 +32,12 @@
 		    orderList = (ArrayList<Order>) request.getAttribute("orders");
 		}
 		ArrayList<User> userList = new ArrayList<User>();
-		if(request.getAttribute("users")!=null) {
+		if(request.getAttribute("users") != null) {
 			userList = (ArrayList<User>) request.getAttribute("users");	
+		}
+		ArrayList<Book> bookList = new ArrayList<Book>();
+		if(request.getAttribute("books") != null) {
+			bookList = (ArrayList<Book>) request.getAttribute("books");
 		}
 	%>
 	<div id="wrapper">
@@ -88,6 +93,7 @@
 											<th>Userid</th>
 											<th>Date</th>
 											<th>Orderitem ID List</th>
+											<th>Sum</th>
 											<th></th>
 										</tr>
 									</thead>
@@ -97,10 +103,20 @@
 												Order order = orderList.get(i);
 												Set<Orderitem> orderitems = order.getOrderitems();
 												ArrayList<String> orderitemStr = new ArrayList<String>();
+											    double sum = 0.0;
 																												
 												Iterator iterator = orderitems.iterator();     
 												while(iterator.hasNext()){
-													orderitemStr.add(((Orderitem)iterator.next()).getId()+"");
+													Orderitem item = (Orderitem)iterator.next();
+													orderitemStr.add(item.getId()+"");
+													int itemBookId = item.getBookid();
+
+													for(int j=0; j<bookList.size(); j++) {
+														Book book = bookList.get(j);
+														if(itemBookId==book.getId()) {
+															sum += book.getPrice() * item.getAmount();
+														}
+													}
 												}
 										%>
 										<tr>
@@ -108,6 +124,7 @@
 											<td><%=order.getUserid()%></td>
 											<td><%=order.getDate()%></td>
 											<td><%=orderitemStr%></td>
+											<td><%=sum %></td>
 											<td>
 												<button class="btn btn-default delete" type="button"
 													data-id="<%=order.getId()%>">
@@ -119,7 +136,7 @@
 													data-date="<%=order.getDate()%>">
 													<i class="fa fa-edit"></i>
 												</button>
-											</td>
+											</td>	
 										</tr>
 										<%
 											}

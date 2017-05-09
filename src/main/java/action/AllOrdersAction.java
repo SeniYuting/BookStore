@@ -2,6 +2,7 @@ package action;
 
 import java.util.List;
 
+import model.Book;
 import model.Order;
 import model.User;
 import service.AppService;
@@ -24,6 +25,9 @@ public class AllOrdersAction extends BaseAction {
 
 		List<User> users = appService.getAllUsers();
 		request().setAttribute("users", users);
+		
+		List<Book> books = appService.getAllBooks();
+		request().setAttribute("books", books);
 
 		return SUCCESS;
 	}
